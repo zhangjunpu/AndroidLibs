@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_tips">"请同意权限，才能使用"</string>
+    <string name="agree">同意</string>
+    <string name="reject">拒绝</string>
+</resources>

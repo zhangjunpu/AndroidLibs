@@ -1,0 +1,6 @@
+include ':utils-view'
+include ':utils-exifinterface'
+include ':utils-vibrator'
+include ':utils'
+include ':app'
+rootProject.name = "Utils"
