@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="BaseTheme.ImagePreview" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/imagePrevice.colorPrimary</item>
+        <item name="colorPrimaryDark">@color/imagePrevice.colorPrimaryDark</item>
+        <item name="colorAccent">@color/imagePrevice.colorAccent</item>
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.ImagePreview" parent="BaseTheme.ImagePreview"/>
+
+</resources>

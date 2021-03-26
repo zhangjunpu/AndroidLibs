@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 应用主体色 -->
+    <color name="imagePrevice.colorPrimary">#ffffff</color>
+    <color name="imagePrevice.colorPrimaryDark">#2d2d3a</color>
+    <color name="imagePrevice.colorAccent">#ffffff</color>
+
+</resources>

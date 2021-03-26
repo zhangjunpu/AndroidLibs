@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ImagePreview</string>
+    <string name="page_num">%d/%d</string>
+</resources>
