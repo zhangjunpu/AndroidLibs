@@ -39,7 +39,7 @@ fun Image.toByteArray(): ByteArray? {
 /**
  * Bitmap转换为字节数组JPEG
  */
-fun Bitmap.toByteArray(quality: Int = 100): ByteArray = ByteArrayOutputStream(byteCount).let {
+fun Bitmap.toByteArray(quality: Int = 100): ByteArray = ByteArrayOutputStream(byteCount).use {
     compress(Bitmap.CompressFormat.JPEG, quality, it)
     it.toByteArray()
 }

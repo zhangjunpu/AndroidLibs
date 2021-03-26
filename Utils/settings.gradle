@@ -1,3 +1,4 @@
+include ':utils-gson'
 include ':utils-view'
 include ':utils-exifinterface'
 include ':utils-vibrator'
