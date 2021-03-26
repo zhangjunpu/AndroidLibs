@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_search"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/search_height"
+    android:background="@color/searchbar_bg"
+    android:gravity="center_vertical">
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="6dp"
+        android:layout_marginStart="9.6dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:background="@drawable/search_edit_bg">
+
+        <EditText
+            android:id="@+id/editSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/search_edit_bg"
+            android:drawablePadding="5.6dp"
+            android:drawableStart="@mipmap/ic_search"
+            android:ellipsize="end"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="36dp"
+            android:paddingStart="12.4dp"
+            android:textColor="@color/search_text_color"
+            android:textColorHint="@color/search_text_color_hint"
+            android:textSize="13.4sp" />
+
+        <ImageView
+            android:id="@+id/clear"
+            android:layout_width="@dimen/search_cancel_size"
+            android:layout_height="@dimen/search_cancel_size"
+            android:layout_gravity="center_vertical|end"
+            android:scaleType="center"
+            android:src="@mipmap/ic_search_cancel"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/search"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/search_text_color_cancel"
+        android:textSize="15.4sp"
+        android:visibility="visible" />
+</LinearLayout>

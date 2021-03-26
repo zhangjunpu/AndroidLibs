@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WidgetLibrary</string>
+    <string name="delete_mistake_tips">确定要删除本题吗？</string>
+</resources>

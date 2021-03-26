@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="searchbar_bg">#fff</color>
+    <color name="search_edit_bg">#f2f5f7</color>
+
+    <color name="search_text_color">#535d75</color>
+    <color name="search_text_color_hint">#c8cfd8</color>
+    <color name="search_text_color_cancel">#7c83ff</color>
+</resources>

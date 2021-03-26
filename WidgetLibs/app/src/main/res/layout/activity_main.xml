@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/emptyView"
+        style="@style/main_item"
+        android:text="EmptyView" />
+
+    <TextView
+        android:id="@+id/dialog"
+        style="@style/main_item"
+        android:text="Dialog" />
+
+    <TextView
+        android:id="@+id/titleBar"
+        style="@style/main_item"
+        android:text="TitleBar" />
+
+    <TextView
+        android:id="@+id/tvAdbarview"
+        style="@style/main_item"
+        android:text="AdBarView" />
+
+    <TextView
+        android:id="@+id/tvFloatView"
+        style="@style/main_item"
+        android:text="浮动View" />
+
+    <TextView
+        android:id="@+id/tvSlide"
+        style="@style/main_item"
+        android:text="侧滑删除" />
+
+
+    <TextView
+        android:id="@+id/tvDialPlate"
+        style="@style/main_item"
+        android:text="拨号盘" />
+
+
+    <TextView
+        android:id="@+id/tvDialPlateForTv"
+        style="@style/main_item"
+        android:text="TV拨号盘" />
+
+    <TextView
+        android:id="@+id/tvPopupWindow"
+        style="@style/main_item"
+        android:text="PopupWindow" />
+
+    <TextView
+        android:id="@+id/btnAdapter"
+        style="@style/main_item"
+        android:text="Adapter" />
+
+
+</LinearLayout>

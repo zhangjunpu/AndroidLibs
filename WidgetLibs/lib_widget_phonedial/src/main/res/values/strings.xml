@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">lib_widget_phonedial</string>
+    <string name="dial_hint">请输入设备号</string>
+</resources>

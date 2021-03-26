@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="9.6dp"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/dialog_bg"
+        android:choiceMode="singleChoice"
+        android:divider="@drawable/dialog_divider"
+        android:dividerHeight="0.3dp"
+        android:scrollbars="none" />
+
+    <FrameLayout
+        android:id="@+id/actionMenu"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dialog_item_height"
+        android:layout_marginTop="6.7dp"
+        android:background="@drawable/dialog_bg">
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dialog_item_height"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="#7c83ff"
+            android:textSize="14.4sp" />
+    </FrameLayout>
+
+</LinearLayout>

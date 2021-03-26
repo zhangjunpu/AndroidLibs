@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="dial_number_item">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/dial_item_height</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/dial_item_selector</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dial_text_primary</item>
+        <item name="android:textSize">26.9sp</item>
+    </style>
+
+</resources>

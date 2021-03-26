@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dial_bg"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/textDialNumber"
+        android:layout_width="match_parent"
+        android:layout_height="54.7dp"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:focusable="false"
+        android:gravity="center"
+        android:hint="@string/dial_hint"
+        android:maxLength="11"
+        android:singleLine="true"
+        android:textColor="@color/dial_text_primary"
+        android:textColorHint="#80a1aab6"
+        android:textSize="20.9sp" />
+
+    <include layout="@layout/dial_line_h" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dial_item_height">
+
+        <TextView
+            android:id="@+id/number1"
+            style="@style/dial_number_item"
+            android:text="1" />
+
+        <TextView
+            android:id="@+id/number2"
+            style="@style/dial_number_item"
+            android:text="2" />
+
+        <TextView
+            android:id="@+id/number3"
+            style="@style/dial_number_item"
+            android:text="3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dial_item_height">
+
+        <TextView
+            android:id="@+id/number4"
+            style="@style/dial_number_item"
+            android:text="4" />
+
+        <TextView
+            android:id="@+id/number5"
+            style="@style/dial_number_item"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/number6"
+            style="@style/dial_number_item"
+            android:text="6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dial_item_height">
+
+        <TextView
+            android:id="@+id/number7"
+            style="@style/dial_number_item"
+            android:text="7" />
+
+        <TextView
+            android:id="@+id/number8"
+            style="@style/dial_number_item"
+            android:text="8" />
+
+        <TextView
+            android:id="@+id/number9"
+            style="@style/dial_number_item"
+            android:text="9" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dial_item_height">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dial_item_height"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/number0"
+            style="@style/dial_number_item"
+            android:text="0" />
+
+        <ImageView
+            android:id="@+id/dialDel"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dial_item_height"
+            android:layout_weight="1"
+            android:background="@drawable/dial_item_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:scaleType="center"
+            android:src="@mipmap/ic_facetime_dial_del" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/dialCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/dial_call_bg"
+        android:clickable="true"
+        android:focusable="true"
+        android:minWidth="266.7dp"
+        android:scaleType="center" />
+
+</LinearLayout>

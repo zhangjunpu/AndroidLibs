@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dial_bg">#fff</color>
+    <color name="dial_line_gray">#eceef0</color>
+
+    <color name="dial_text_primary">#32394a</color>
+    <color name="dial_text_tertiary">#a1aab6</color>
+
+    <drawable name="dial_selector_bg_normal">#00000000</drawable>
+    <drawable name="dial_selector_bg_press">#30666666</drawable>
+    <drawable name="dial_selector_bg_selected">#30ffffff</drawable>
+
+    <color name="dial_selector_bg_press">#30666666</color>
+    <color name="dial_selector_bg_selected">#30ffffff</color>
+</resources>

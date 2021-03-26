@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/emptyAccent" />
+
+    <LinearLayout
+        android:id="@+id/layoutMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="30dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4.8dp"
+            android:gravity="center"
+            android:src="@mipmap/ic_nodata_empty"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:gravity="center"
+            android:textColor="@color/empty_text"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            tools:text="需要访问你的通讯录" />
+
+        <TextView
+            android:id="@+id/textSubMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1.8dp"
+            android:gravity="center"
+            android:textColor="@color/empty_text_sub"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:text="发起聊天或视频通话后，显示在这里" />
+
+        <TextView
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9.8dp"
+            android:background="@drawable/nodata_retry_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:minWidth="@dimen/empty_retry_width"
+            android:minHeight="@dimen/empty_retry_height"
+            android:paddingStart="17dp"
+            android:paddingEnd="17dp"
+            android:text="@string/retry"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/btnReLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/nodata_relogin_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:minWidth="@dimen/empty_retry_width"
+            android:minHeight="@dimen/empty_retry_height"
+            android:paddingStart="17dp"
+            android:paddingEnd="17dp"
+            android:text="@string/reLogin"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:visibility="gone" />
+    </LinearLayout>
+</merge>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.junpu.widget.sample.ui.AdBarViewActivity">
+
+    <com.junpu.widget.AdBarView.AdView
+        android:id="@+id/mv_bar1"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/holo_red_dark"
+        app:mvAnimDuration="1000"
+        app:mvInterval="3000"
+        app:mvTextColor="#ffffff"
+        app:mvTextSize="14sp"></com.junpu.widget.AdBarView.AdView>
+
+    <com.junpu.widget.AdBarView.ScrollAdView
+        android:id="@+id/mv_bar2"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:background="#ff0000"
+        app:mvAnimDuration="1000"
+        app:mvInterval="3000"
+        app:mvTextColor="#ffffff"
+        app:mvTextSize="15.2sp"></com.junpu.widget.AdBarView.ScrollAdView>
+
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme_Dialog_Base" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <!--<item name="android:windowIsFloating">true</item> &lt;!&ndash; 浮于Activity之上 &ndash;&gt;-->
+        <item name="android:windowIsTranslucent">true</item> <!-- 半透明 -->
+        <item name="colorAccent">@color/colorAccentDialog</item>
+    </style>
+
+    <!-- RecyclerDialog style -->
+    <style name="Theme_Dialog_Recycler" parent="Theme_Dialog_Base">
+        <!-- Dialog以外的区域透明度 -->
+        <!--<item name="android:backgroundDimEnabled">false</item>-->
+        <!--<item name="android:backgroundDimAmount">0.5</item>-->
+        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/dialog_anim_bottom</item>
+    </style>
+
+</resources>

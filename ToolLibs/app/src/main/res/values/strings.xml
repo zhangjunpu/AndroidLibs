@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ToolLibrary</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="permission_tips">请同意权限，才能使用</string>
+    <string name="image">image</string>
+    <string name="camera">camera</string>
+    <string name="picker">picker</string>
+    <string name="crop">crop</string>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="default_underline_indicator_fade_delay">300</integer>
+    <integer name="default_underline_indicator_fade_length">400</integer>
+
+    <color name="default_underline_indicator_selected_color">#ff6600</color>
+
+    <declare-styleable name="UnderlinePageIndicator">
+        <!-- Whether or not the selected indicator fades. -->
+        <attr name="fades" format="boolean" />
+        <!-- Length of the delay to fade the indicator. -->
+        <attr name="fadeDelay" format="integer" />
+        <!-- Length of the indicator fade to transparent. -->
+        <attr name="fadeLength" format="integer" />
+        <!-- Color of the selected line that represents the current page. -->
+        <attr name="selectedColor" format="color" />
+        <!-- View background -->
+        <attr name="android:background" />
+        <attr name="isline" format="boolean"/>
+    </declare-styleable>
+
+    <dimen name="dimen_1_25">1.25dp</dimen>
+    <dimen name="dimen_13">13dp</dimen>
+
+    <!-- TabIndicator 默认颜色 -->
+    <color name="tab_text_on">#333333</color>
+    <color name="tab_text_off">#7f333333</color>
+    <color name="default_indicator">#333333</color>
+</resources>

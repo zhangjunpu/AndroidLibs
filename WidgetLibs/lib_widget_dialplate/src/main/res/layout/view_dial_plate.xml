@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/tvPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="17.3dp"
+        android:layout_marginRight="17.3dp"
+        android:background="@drawable/view_show_number"
+        android:gravity="center"
+        android:hint="输入设备号或手机号"
+        android:textColor="#ffffff"
+        android:textColorHint="#80a1aab6"
+        android:textSize="33.3sp"
+        tools:text="183 1009 5359" />
+
+    <LinearLayout
+        style="@style/dial_item"
+        android:layout_marginTop="12.7dp"
+        android:orientation="horizontal">
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/dial_button"
+            android:text="1" />
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv2"
+            style="@style/dial_button"
+            android:text="2" />
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv3"
+            style="@style/dial_button"
+            android:text="3" />
+
+        <View style="@style/dial_line_v" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/dial_item"
+        android:layout_marginTop="13.3dp"
+        android:orientation="horizontal">
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv4"
+            style="@style/dial_button"
+            android:text="4" />
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv5"
+            style="@style/dial_button"
+            android:text="5" />
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv6"
+            style="@style/dial_button"
+            android:text="6" />
+
+        <View style="@style/dial_line_v" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/dial_item"
+        android:layout_marginTop="13.3dp"
+        android:orientation="horizontal">
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv7"
+            style="@style/dial_button"
+            android:text="7" />
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv8"
+            style="@style/dial_button"
+            android:text="8" />
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv9"
+            style="@style/dial_button"
+            android:text="9" />
+
+        <View style="@style/dial_line_v" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/dial_item"
+        android:layout_marginBottom="12.7dp"
+        android:layout_marginTop="13.3dp"
+        android:orientation="horizontal">
+
+        <View style="@style/dial_line_v" />
+
+        <TextView
+            android:id="@+id/tv0"
+            style="@style/dial_button"
+            android:text="0" />
+
+        <View style="@style/dial_line_v" />
+
+        <FrameLayout
+            android:id="@+id/flDial"
+            style="@style/dial_image_view"
+            android:background="@drawable/view_dial_button">
+
+            <ImageView
+                android:id="@+id/ivDial"
+                android:layout_width="28.7dp"
+                android:layout_height="28.7dp"
+                android:layout_gravity="center"
+                android:src="@drawable/call" />
+        </FrameLayout>
+
+        <View style="@style/dial_line_v" />
+
+        <FrameLayout
+            android:id="@+id/flDelete"
+            style="@style/dial_image_view"
+            android:background="@drawable/view_dial_number_selector">
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="38dp"
+                android:layout_height="22.7dp"
+                android:layout_gravity="center"
+                android:background="@drawable/view_delete_selector"
+                android:gravity="center"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <View style="@style/dial_line_v" />
+
+    </LinearLayout>
+
+    <View style="@style/dial_line_h" />
+</LinearLayout>

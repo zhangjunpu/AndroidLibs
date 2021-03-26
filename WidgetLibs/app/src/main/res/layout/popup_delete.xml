@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="229dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imageWarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/ic_popup_warning"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:text="@string/delete_mistake_tips"
+        android:textColor="@color/text_6"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/imageWarning"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btnCancel"
+        android:layout_width="50dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/ripple_r4_white_s1_gray_d9"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/text_6"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@id/btnSubmit"
+        app:layout_constraintEnd_toStartOf="@id/btnSubmit"
+        app:layout_constraintTop_toTopOf="@id/btnSubmit" />
+
+    <TextView
+        android:id="@+id/btnSubmit"
+        android:layout_width="50dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/ripple_r4_red"
+        android:gravity="center"
+        android:text="@string/ensure"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textTitle" />
+</androidx.constraintlayout.widget.ConstraintLayout>

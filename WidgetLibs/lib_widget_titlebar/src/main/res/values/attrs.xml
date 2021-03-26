@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="colorMode" format="enum">
+        <enum name="light" value="0" />
+        <enum name="dark" value="1" />
+    </attr>
+
+    <!-- TitleBar -->
+    <declare-styleable name="TitleBar">
+        <attr name="colorMode" />
+        <attr name="textTitle" format="string" />
+    </declare-styleable>
+
+</resources>

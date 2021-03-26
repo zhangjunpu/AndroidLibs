@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="search_height">48dp</dimen>
+    <dimen name="search_radius">18dp</dimen>
+    <dimen name="search_cancel_size">36dp</dimen>
+</resources>
