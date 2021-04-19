@@ -51,6 +51,9 @@ val View.location
         getGlobalVisibleRect(it)
     }
 
+val View.constraintLayoutParams
+    get() = layoutParams as? ConstraintLayout.LayoutParams
+
 /**
  * 是否点击在了一个View内
  */
@@ -80,6 +83,3 @@ fun TextView.nextLine() = apply {
 fun TextView.clearText() = apply {
     text = null
 }
-
-val View.constraintLayoutParams
-    get() = layoutParams as? ConstraintLayout.LayoutParams

@@ -36,14 +36,14 @@ fun Activity.getActivityMetaData(key: String): String? {
     return info?.metaData?.getString(key)
 }
 
-fun Context.getServiceMetaData(cls: Class<*>, key: String): String? {
-    val componentName = ComponentName(this, cls)
+inline fun <reified T> Context.getServiceMetaData(key: String): String? {
+    val componentName = ComponentName(this, T::class.java)
     val info = packageManager?.getServiceInfo(componentName, PackageManager.GET_META_DATA)
     return info?.metaData?.getString(key)
 }
 
-fun Activity.getReceiverMetaData(cls: Class<*>, key: String): String? {
-    val componentName = ComponentName(this, cls)
+inline fun <reified T> Activity.getReceiverMetaData(key: String): String? {
+    val componentName = ComponentName(this, T::class.java)
     val info = packageManager?.getReceiverInfo(componentName, PackageManager.GET_META_DATA)
     return info?.metaData?.getString(key)
 }

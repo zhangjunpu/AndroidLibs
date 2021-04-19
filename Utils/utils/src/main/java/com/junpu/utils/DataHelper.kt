@@ -11,12 +11,6 @@ import org.json.JSONObject
  * @date 2019-06-29
  */
 
-fun CharSequence?.isNotNullOrBlank(): Boolean = !isNullOrBlank()
-
-fun CharSequence?.isNotNullOrEmpty(): Boolean = !isNullOrEmpty()
-
-fun <T> List<T>?.isNotNullOrEmpty(): Boolean = !isNullOrEmpty()
-
 fun <K, V> HashMap<K, V>.append(key: K, value: V) = apply {
     put(key, value)
 }
@@ -34,15 +28,14 @@ fun <K, V> HashMap<K, V>.appendNotNull(key: K, value: V?) = apply {
 }
 
 fun JSONArray?.isNullOrEmpty(): Boolean = this == null || length() <= 0
-fun JSONArray?.isNotNullOrEmpty(): Boolean = !isNullOrEmpty()
 
-fun JSONArray.forEach(each: (JSONObject) -> Unit) {
+inline fun JSONArray.forEach(block: (JSONObject) -> Unit) {
     for (i in 0 until length()) {
-        each(getJSONObject(i))
+        block(getJSONObject(i))
     }
 }
 
-fun <R, C : MutableCollection<in R>> JSONArray.mapTo(
+inline fun <R, C : MutableCollection<in R>> JSONArray.mapTo(
     destination: C,
     transform: (JSONObject) -> R
 ): C {
@@ -50,4 +43,4 @@ fun <R, C : MutableCollection<in R>> JSONArray.mapTo(
     return destination
 }
 
-fun <R> JSONArray.map(transform: (JSONObject) -> R) = mapTo(arrayListOf(), transform)
+inline fun <R> JSONArray.map(transform: (JSONObject) -> R) = mapTo(arrayListOf(), transform)

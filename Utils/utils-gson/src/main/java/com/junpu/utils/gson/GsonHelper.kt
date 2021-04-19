@@ -5,7 +5,6 @@ package com.junpu.utils.gson
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
 
 /**
  * Gson工具类
@@ -13,52 +12,40 @@ import java.lang.reflect.Type
  * @date 2019-12-13
  */
 
+val gson by lazy { Gson() }
+
 /**
- * Gson fromJson
+ * Gson fromJson, convert string to object by Class.
  */
-fun <T> String.fromJson(cls: Class<T>?): T? {
+inline fun <reified T> String.fromJson(): T? {
     return try {
-        Gson().fromJson(this, cls)
+        gson.fromJson(this, T::class.java)
     } catch (e: Exception) {
-        e.logStackTrace()
+        Log.e("System.err", e.stackTraceToString())
         null
     }
 }
 
 /**
- * Gson fromJson
+ * Gson fromJson, convert string to object by TypeT.
  */
-fun <T> String.fromJson(): T? {
+inline fun <reified T> String.fromJsonType(): T? {
     return try {
-        Gson().fromJson(this, object : TypeToken<T>() {}.type)
+        gson.fromJson(this, object : TypeToken<T>() {}.type)
     } catch (e: Exception) {
-        e.logStackTrace()
+        Log.e("System.err", e.stackTraceToString())
         null
     }
 }
 
 /**
- * Gson fromJson
- */
-fun <T> String.fromJsonType(type: Type): T? {
-    return try {
-        Gson().fromJson(this, type)
-    } catch (e: Exception) {
-        e.logStackTrace()
-        null
-    }
-}
-
-/**
- * Gson toJson
+ * Gson toJson, convert object to string;
  */
 fun Any.toJson(): String? {
     return try {
-        Gson().toJson(this)
+        gson.toJson(this)
     } catch (e: Exception) {
-        e.logStackTrace()
+        Log.e("System.err", e.stackTraceToString())
         null
     }
 }
-
-private fun Throwable.logStackTrace() = Log.e("System.err", stackTraceToString())

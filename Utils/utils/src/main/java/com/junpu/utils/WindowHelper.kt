@@ -46,7 +46,7 @@ val Window.screenHeight: Int
     get() = context.screenHeight
 
 
-val Context.realDisplayMetrics
+val Context.realDisplayMetrics: DisplayMetrics
     get() = DisplayMetrics().also { display?.getRealMetrics(it) }
 
 val Fragment.realDisplayMetrics: DisplayMetrics

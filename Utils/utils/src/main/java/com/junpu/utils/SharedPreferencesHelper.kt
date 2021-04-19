@@ -4,6 +4,7 @@ package com.junpu.utils
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import com.junpu.utils.encrypt.AesUtils
 
 /**
@@ -22,8 +23,7 @@ fun getSharedPreferences(name: String): SharedPreferences =
  * 数据加密存储
  */
 fun SharedPreferences.putStringEncrypt(key: String, value: String?) {
-    val text = AesUtils.encrypt(value)
-    edit().putString(key, text).apply()
+    edit { putString(key, AesUtils.encrypt(value)) }
 }
 
 /**
