@@ -4,9 +4,9 @@
 package com.junpu.utils
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.DisplayMetrics
 import android.view.View
-import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
 
 /**
@@ -38,8 +38,6 @@ fun Context.sp(value: Float): Int = (value * resources.displayMetrics.scaledDens
 fun Context.px2dip(px: Int): Float = px.toFloat() / resources.displayMetrics.density
 fun Context.px2sp(px: Int): Float = px.toFloat() / resources.displayMetrics.scaledDensity
 
-fun Context.dimen(@DimenRes resource: Int): Int = resources.getDimensionPixelSize(resource)
-
 //the same for the views
 inline fun View.dip(value: Int): Int = context.dip(value)
 inline fun View.dip(value: Float): Int = context.dip(value)
@@ -47,7 +45,6 @@ inline fun View.sp(value: Int): Int = context.sp(value)
 inline fun View.sp(value: Float): Int = context.sp(value)
 inline fun View.px2dip(px: Int): Float = context.px2dip(px)
 inline fun View.px2sp(px: Int): Float = context.px2sp(px)
-inline fun View.dimen(@DimenRes resource: Int): Int = context.dimen(resource)
 
 //the same for Fragments
 inline fun Fragment.dip(value: Int): Int = requireActivity().dip(value)
@@ -56,7 +53,6 @@ inline fun Fragment.sp(value: Int): Int = requireActivity().sp(value)
 inline fun Fragment.sp(value: Float): Int = requireActivity().sp(value)
 inline fun Fragment.px2dip(px: Int): Float = requireActivity().px2dip(px)
 inline fun Fragment.px2sp(px: Int): Float = requireActivity().px2sp(px)
-inline fun Fragment.dimen(@DimenRes resource: Int): Int = requireActivity().dimen(resource)
 
 fun dip(value: Float): Int = app.dip(value)
 fun dip(value: Int): Int = app.dip(value)
@@ -64,4 +60,12 @@ fun sp(value: Int): Int = app.sp(value)
 fun sp(value: Float): Int = app.sp(value)
 fun px2dip(px: Int): Float = app.px2dip(px)
 fun px2sp(px: Int): Float = app.px2sp(px)
-fun dimen(@DimenRes resource: Int): Int = app.dimen(resource)
+
+val Float.dip: Int get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+val Int.dip: Int get() = toFloat().dip
+val Float.sp: Int get() = (this * Resources.getSystem().displayMetrics.scaledDensity).toInt()
+val Int.sp: Int get() = toFloat().sp
+val Float.toDip: Float get() = this / Resources.getSystem().displayMetrics.density
+val Int.toDip: Float get() = toFloat().toDip
+val Float.toSp: Float get() = this / Resources.getSystem().displayMetrics.scaledDensity
+val Int.toSp: Float get() = toFloat().toSp
