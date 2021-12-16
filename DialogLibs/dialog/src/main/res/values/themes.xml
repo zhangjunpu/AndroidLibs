@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Dialog_Theme_Base" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item> <!-- 半透明 -->
+        <item name="colorAccent">@color/colorAccentDialog</item>
+    </style>
+
+    <style name="Dialog_Theme_Bottom" parent="Dialog_Theme_Base">
+        <item name="android:windowAnimationStyle">@style/dialog_anim_bottom</item> <!-- 动画 -->
+    </style>
+
+    <style name="Dialog_Theme_Dim" parent="Dialog_Theme_Base">
+        <item name="android:backgroundDimEnabled">false</item> <!-- 禁用背景遮罩 -->
+    </style>
+
+</resources>

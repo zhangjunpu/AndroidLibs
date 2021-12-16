@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 通用圆形进度条 -->
+    <style name="dialog_loading" parent="@android:style/Widget.Material.ProgressBar">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:indeterminateTint">@color/colorAccentDialog</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
+    <!-- 下进下出动画 -->
+    <style name="dialog_anim_bottom" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_bottom</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_bottom</item>
+    </style>
+
+    <!-- 右进右出动画 -->
+    <style name="dialog_anim_right" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_right</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_right</item>
+    </style>
+
+    <!-- 左进左出动画 -->
+    <style name="dialog_anim_left" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_left</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_left</item>
+    </style>
+
+    <!-- 上进上出动画 -->
+    <style name="dialog_anim_top" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_top</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_top</item>
+    </style>
+
+    <!-- 上进上出动画 -->
+    <style name="dialog_anim_fade" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/dialog_fade_out</item>
+    </style>
+</resources>

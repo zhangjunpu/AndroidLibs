@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="310dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/dialog_bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/textMessage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="100dp"
+        android:padding="17dp"
+        android:textColor="@color/dialog_text_6"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="message" />
+
+    <View
+        android:id="@+id/line_h"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dialog_line"
+        app:layout_constraintTop_toBottomOf="@id/textMessage" />
+
+    <TextView
+        android:id="@+id/btnCancel"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/dialog_text_9"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@id/line_v"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line_h" />
+
+    <View
+        android:id="@+id/line_v"
+        android:layout_width="1dp"
+        android:layout_height="45dp"
+        android:background="@color/dialog_line"
+        app:layout_constraintEnd_toStartOf="@id/btnSubmit"
+        app:layout_constraintStart_toEndOf="@id/btnCancel"
+        app:layout_constraintTop_toBottomOf="@id/line_h" />
+
+    <TextView
+        android:id="@+id/btnSubmit"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_weight="1"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/ensure"
+        android:textColor="@color/colorAccentDialog"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/line_v"
+        app:layout_constraintTop_toBottomOf="@id/line_h" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

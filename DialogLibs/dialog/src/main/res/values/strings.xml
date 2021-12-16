@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">dialog</string>
+
+    <string name="ensure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="dialog_loading">加载中…</string>
+</resources>
