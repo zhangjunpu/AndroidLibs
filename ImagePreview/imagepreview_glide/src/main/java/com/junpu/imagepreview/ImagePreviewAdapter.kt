@@ -5,8 +5,6 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -14,7 +12,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.github.chrisbanes.photoview.PhotoView
+import com.junpu.imagepreview.databinding.ImagePagerItemBinding
 
 /**
  * 视频预览Adapter
@@ -23,12 +21,10 @@ import com.github.chrisbanes.photoview.PhotoView
  * @date 14/11/21
  */
 class ImagePreviewAdapter(
-        private val context: Context,
-        private var data: Array<out String>? = null,
+    private val context: Context,
+    private var data: Array<out String>? = null,
 ) : PagerAdapter() {
 
-
-    private val inflater = LayoutInflater.from(context)
     private var onViewTapListener: ((view: View, x: Float, y: Float) -> Unit)? = null
 
     fun doOnViewTap(callback: (view: View, x: Float, y: Float) -> Unit) {
@@ -46,34 +42,43 @@ class ImagePreviewAdapter(
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val layout = inflater.inflate(R.layout.image_pager_item, container, false)
-        val progress = layout.findViewById<ProgressBar>(R.id.loading)
-        val imageView = layout.findViewById<PhotoView>(R.id.image).apply {
-            setOnViewTapListener { view, x, y -> onViewTapListener?.invoke(view, x, y) }
-        }
-        val item = getItem(position)
-        loadImageUrl(item, imageView, progress)
-        container.addView(layout, 0)
-        return layout
+        val binding = ImagePagerItemBinding.inflate(LayoutInflater.from(context), container, false)
+            .apply {
+                image.setOnViewTapListener { view, x, y -> onViewTapListener?.invoke(view, x, y) }
+            }
+        loadImageUrl(getItem(position), binding)
+        container.addView(binding.root, 0)
+        return binding.root
     }
 
-    private fun loadImageUrl(url: String?, imageView: ImageView, progress: ProgressBar) {
+    private fun loadImageUrl(url: String?, binding: ImagePagerItemBinding) {
         Glide.with(context)
-                .load(url)
-                .error(R.mipmap.ic_default_h)
-                .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        progress.visibility = View.GONE
-                        return false
-                    }
+            .load(url)
+            .error(R.mipmap.ic_default_h)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    binding.loading.visibility = View.GONE
+                    return false
+                }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        progress.visibility = View.GONE
-                        return false
-                    }
-                })
-                .into(imageView)
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    binding.loading.visibility = View.GONE
+                    return false
+                }
+            })
+            .into(binding.image)
     }
 
 }

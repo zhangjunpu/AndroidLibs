@@ -2,8 +2,8 @@
 <resources>
 
     <!-- 应用主体色 -->
-    <color name="imagePrevice.colorPrimary">#ffffff</color>
-    <color name="imagePrevice.colorPrimaryDark">#2d2d3a</color>
-    <color name="imagePrevice.colorAccent">#ffffff</color>
+    <color name="imagePreview_colorPrimary">#ffffff</color>
+    <color name="imagePreview_colorPrimaryDark">#2d2d3a</color>
+    <color name="imagePreview_colorAccent">#ffffff</color>
 
 </resources>

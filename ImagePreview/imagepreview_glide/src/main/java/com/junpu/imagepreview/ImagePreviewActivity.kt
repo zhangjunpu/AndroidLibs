@@ -3,11 +3,12 @@ package com.junpu.imagepreview
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
-import kotlinx.android.synthetic.main.activity_image_preview.*
+import com.junpu.imagepreview.databinding.ActivityImagePreviewBinding
 import java.util.*
 
 /**
@@ -18,26 +19,29 @@ import java.util.*
  */
 class ImagePreviewActivity : AppCompatActivity() {
 
+    private val binding by lazy { ActivityImagePreviewBinding.inflate(layoutInflater) }
+
     private var size = 0
     private var curIndex = 0
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_image_preview)
-        btnBack.setOnClickListener { finish() }
+        setContentView(binding.root)
+        binding.btnBack.setOnClickListener { finish() }
         initData(savedInstanceState)
     }
 
     public override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putInt(CUR_INDEX, viewPager!!.currentItem)
+        outState.putInt(CUR_INDEX, binding.viewPager.currentItem)
     }
 
     private fun initData(savedInstanceState: Bundle?) {
         val urls = intent.getStringArrayExtra(ARGS_ARRAY)
         size = urls?.size ?: 0
         curIndex = savedInstanceState?.getInt(CUR_INDEX) ?: intent.getIntExtra(ARGS_POSITION, 0)
-        viewPager?.run {
+        println("-------> $urls, ${size}, $curIndex")
+        binding.viewPager.run {
             addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
                 override fun onPageSelected(i: Int) {
                     updateIndex(i)
@@ -47,11 +51,11 @@ class ImagePreviewActivity : AppCompatActivity() {
             currentItem = curIndex
         }
         updateIndex(curIndex)
-        if (size == 1) textNum?.visibility = View.INVISIBLE
+        if (size == 1) binding.textNum.visibility = View.INVISIBLE
     }
 
     private fun updateIndex(index: Int) {
-        textNum?.text = getString(R.string.page_num, index + 1, size)
+        binding.textNum.text = getString(R.string.page_num, index + 1, size)
     }
 
     companion object {
