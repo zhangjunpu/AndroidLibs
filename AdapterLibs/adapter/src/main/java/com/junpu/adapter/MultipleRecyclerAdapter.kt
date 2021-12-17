@@ -20,16 +20,24 @@ abstract class MultipleRecyclerAdapter<T, VH : BaseViewHolder<T>> : BaseAdapter<
     /**
      * 选择一个item
      */
-    fun check(position: Int) = check(getItem(position))
+    fun check(position: Int) {
+        getItem(position)?.let {
+            if (isChecked(it)) {
+                checkedList.remove(it)
+            } else {
+                checkedList.add(it)
+            }
+            notifyItemChanged(position)
+        }
+    }
 
     /**
      * 选择一个item
      */
     fun check(t: T?) {
-        t?.let {
-            if (isChecked(it)) checkedList.remove(it) else checkedList.add(it)
-            notifyDataSetChanged()
-        }
+        t ?: return
+        val position = data.indexOf(t)
+        if (position in data.indices) check(position)
     }
 
     /**
@@ -61,8 +69,8 @@ abstract class MultipleRecyclerAdapter<T, VH : BaseViewHolder<T>> : BaseAdapter<
     /**
      * itemClick
      */
-    protected val itemClick = { view: View?, position: Int ->
-        check(position)
-        listener?.invoke(view, position)
+    protected val itemClick: (View?, Int) -> Unit = { view, i ->
+        check(i)
+        listener?.invoke(view, i)
     }
 }

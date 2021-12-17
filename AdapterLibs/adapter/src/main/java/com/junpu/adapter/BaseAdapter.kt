@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @author junpu
  * @date 2019-12-31
  */
-abstract class BaseAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
+abstract class BaseAdapter<T, VH : RecyclerView.ViewHolder> : RecyclerView.Adapter<VH>() {
 
     val data = arrayListOf<T>()
     val isEmpty = data.isEmpty()

@@ -5,13 +5,16 @@ import android.view.ViewGroup
 import com.junpu.adapter.BaseAdapter
 import com.junpu.adapter.BaseViewHolder
 import com.junpu.adapter.demo.databinding.AdapterItemBinding
+import com.junpu.adapter.demo.model.AdapterItem
 import com.junpu.adapter.demo.utils.binding
+import com.junpu.utils.gone
 
 /**
+ * 最普通的 adapter
  * @author junpu
  * @date 2021/12/13
  */
-class TestAdapter : BaseAdapter<TestItem, TestHolder>() {
+class TestAdapter : BaseAdapter<AdapterItem, TestHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestHolder {
         return TestHolder(parent.binding(), listener)
     }
@@ -24,15 +27,16 @@ class TestAdapter : BaseAdapter<TestItem, TestHolder>() {
 class TestHolder(
     private val binding: AdapterItemBinding,
     itemClick: ((View?, Int) -> Unit)?,
-) : BaseViewHolder<TestItem>(binding.root, itemClick) {
-    override fun bindData(t: TestItem?) {
-        super.bindData(t)
-        binding.textTitle.text = t?.title
-        binding.textDesc.text = t?.subTitle
+) : BaseViewHolder<AdapterItem>(binding.root, itemClick) {
+
+    init {
+        binding.checkBox.gone()
+    }
+
+    override fun bindData(t: AdapterItem?) {
+        binding.run {
+            textTitle.text = t?.title
+            textDesc.text = t?.subTitle
+        }
     }
 }
-
-data class TestItem(
-    var title: String?,
-    var subTitle: String?,
-)

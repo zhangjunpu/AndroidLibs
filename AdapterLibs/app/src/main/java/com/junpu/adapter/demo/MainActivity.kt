@@ -2,39 +2,35 @@ package com.junpu.adapter.demo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.junpu.adapter.demo.adapter.TestAdapter
-import com.junpu.adapter.demo.adapter.TestItem
+import androidx.core.os.bundleOf
 import com.junpu.adapter.demo.databinding.ActivityMainBinding
+import com.junpu.adapter.demo.ui.*
 import com.junpu.adapter.demo.utils.binding
-import com.junpu.toast.toast
+import com.junpu.utils.launch
 
 class MainActivity : AppCompatActivity() {
 
     private val binding by binding<ActivityMainBinding>()
 
-    private val adapter by lazy { TestAdapter() }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding.recyclerView.run {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = this@MainActivity.adapter.apply {
-                doOnItemClick { _, i ->
-                    toast("click item : $i")
-                }
+        binding.run {
+            btnNormal.setOnClickListener {
+                gotoNext(PAGE_NORMAL)
+            }
+            btnHeader.setOnClickListener {
+                gotoNext(PAGE_HEADER)
+            }
+            btnSingle.setOnClickListener {
+                gotoNext(PAGE_SINGLE)
+            }
+            btnMultiple.setOnClickListener {
+                gotoNext(PAGE_MULTIPLE)
             }
         }
-
-        adapter.update(list)
     }
 
-    private val list by lazy {
-        mutableListOf<TestItem>().apply {
-            for (i in 0 until 20) {
-                add(TestItem("Title $i", "SubTitle $i"))
-            }
-        }
+    private fun gotoNext(arg: String) {
+        launch<ListActivity>(bundleOf(ARG_PAGE to arg))
     }
 }

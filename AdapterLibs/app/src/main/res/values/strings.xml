@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AdapterLibs</string>
+    <string name="recyclerview_header">RecyclerView Header</string>
 </resources>

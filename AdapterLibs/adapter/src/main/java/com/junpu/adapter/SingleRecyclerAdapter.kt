@@ -42,10 +42,10 @@ abstract class SingleRecyclerAdapter<T, VH : BaseViewHolder<T>> : BaseAdapter<T,
      */
     fun isChecked(position: Int) = checkedPosition == position
 
-    protected val itemClick = { view: View?, position: Int ->
-        if (checkedPosition != position) {
-            check(position)
-            listener?.invoke(view, position)
+    protected val itemClick: (View?, Int) -> Unit = { view, i ->
+        if (checkedPosition != i) {
+            check(i)
+            listener?.invoke(view, i)
         }
     }
 }
