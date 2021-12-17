@@ -2,8 +2,8 @@ package com.junpu.widget.sample.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.junpu.widget.sample.R
-import kotlinx.android.synthetic.main.activity_ad_bar_view.*
+import com.junpu.widget.sample.databinding.ActivityAdBarViewBinding
+import com.junpu.widget.sample.utils.binding
 import java.util.*
 
 /**
@@ -13,9 +13,10 @@ import java.util.*
  */
 class AdBarViewActivity : AppCompatActivity() {
 
+    private val binding by binding<ActivityAdBarViewBinding>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_ad_bar_view)
 
         //设置集合
         val items = ArrayList<String>()
@@ -27,15 +28,13 @@ class AdBarViewActivity : AppCompatActivity() {
         items.add("这是第6个")
         items.add("这是第7个")
 
-        mv_bar1.startWithList(items)
+        binding.mvBar1.startWithList(items)
 
-        mv_bar2.post {
-            mv_bar2.initData(listOf("一项的时候"))
-            mv_bar2.postDelayed({
-                mv_bar2.initData(items)
+        binding.mvBar2.post {
+            binding.mvBar2.initData(listOf("一项的时候"))
+            binding.mvBar2.postDelayed({
+                binding.mvBar2.initData(items)
             }, 5000)
         }
-
-
     }
 }

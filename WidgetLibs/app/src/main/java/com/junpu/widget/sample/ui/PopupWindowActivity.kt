@@ -1,17 +1,18 @@
 package com.junpu.widget.sample.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
+import com.junpu.toast.toast
+import com.junpu.utils.dip
 import com.junpu.widget.popupwindow.CustomPopup
 import com.junpu.widget.popupwindow.ListPopup
 import com.junpu.widget.sample.R
-import kotlinx.android.synthetic.main.activity_popupwindow.*
-import kotlinx.android.synthetic.main.popup_delete.view.*
-import com.junpu.toast.toast
-import com.junpu.widget.sample.utils.dip
+import com.junpu.widget.sample.databinding.ActivityPopupwindowBinding
+import com.junpu.widget.sample.databinding.PopupDeleteBinding
+import com.junpu.widget.sample.utils.binding
 
 /**
  * PopupWindow
@@ -20,18 +21,18 @@ import com.junpu.widget.sample.utils.dip
  */
 class PopupWindowActivity : AppCompatActivity() {
 
+    private val binding by binding<ActivityPopupwindowBinding>()
+
     private var listPopup: ListPopup? = null
     private var customPopup: CustomPopup? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_popupwindow)
 
-        subject.setOnClickListener {
+        binding.subject.setOnClickListener {
             showListPopup(it)
         }
-
-        mode.setOnClickListener {
+        binding.mode.setOnClickListener {
             showCustomPopup(it)
         }
     }
@@ -64,17 +65,17 @@ class PopupWindowActivity : AppCompatActivity() {
      * CustomPopup
      */
     private fun showCustomPopup(showView: View?) {
-        val view = View.inflate(this@PopupWindowActivity, R.layout.popup_delete, null).apply {
-            btnSubmit?.setOnClickListener {
+        val binding = PopupDeleteBinding.inflate(layoutInflater).apply {
+            btnSubmit.setOnClickListener {
                 toast("确定")
                 customPopup?.dismiss()
             }
-            btnCancel?.setOnClickListener {
+            btnCancel.setOnClickListener {
                 customPopup?.dismiss()
             }
         }
         customPopup = CustomPopup(this).apply {
-            setContentView(view)
+            setContentView(binding.root)
             setAnimStyle(CustomPopup.ANIM_GROW_FROM_CENTER)
             setPreferredDirection(CustomPopup.DIRECTION_TOP)
             show(showView)

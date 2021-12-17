@@ -11,11 +11,6 @@
         android:text="EmptyView" />
 
     <TextView
-        android:id="@+id/dialog"
-        style="@style/main_item"
-        android:text="Dialog" />
-
-    <TextView
         android:id="@+id/titleBar"
         style="@style/main_item"
         android:text="TitleBar" />
@@ -51,11 +46,5 @@
         android:id="@+id/tvPopupWindow"
         style="@style/main_item"
         android:text="PopupWindow" />
-
-    <TextView
-        android:id="@+id/btnAdapter"
-        style="@style/main_item"
-        android:text="Adapter" />
-
 
 </LinearLayout>

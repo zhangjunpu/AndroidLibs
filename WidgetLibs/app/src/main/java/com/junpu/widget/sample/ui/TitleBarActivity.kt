@@ -3,7 +3,8 @@ package com.junpu.widget.sample.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.junpu.widget.sample.R
-import kotlinx.android.synthetic.main.activity_titlebar.*
+import com.junpu.widget.sample.databinding.ActivityTitlebarBinding
+import com.junpu.widget.sample.utils.binding
 
 /**
  *
@@ -12,18 +13,15 @@ import kotlinx.android.synthetic.main.activity_titlebar.*
  */
 class TitleBarActivity : AppCompatActivity() {
 
+    private val binding by binding<ActivityTitlebarBinding>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_titlebar)
-        initTitleBar()
-    }
 
-    private fun initTitleBar() {
-//        val titleBar = findViewById<TitleBar>(R.id.titleBar)
-        titleBar.setTitle("TitleBar")
-        titleBar.setItemText(R.id.Next, "检查更新")
-        titleBar.setOnClickListener(R.id.Next) {
+        binding.titleBar.setTitle("TitleBar")
+        binding.titleBar.setItemText(R.id.Next, "检查更新")
+        binding.titleBar.setOnClickListener(R.id.Next) {
         }
-    }
 
+    }
 }

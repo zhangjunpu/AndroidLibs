@@ -2,7 +2,8 @@ package com.junpu.widget.sample.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.junpu.widget.sample.R
+import com.junpu.widget.sample.databinding.ActivityDatePickerBinding
+import com.junpu.widget.sample.utils.binding
 
 /**
  * 时间Picker
@@ -11,8 +12,10 @@ import com.junpu.widget.sample.R
  */
 class DatePickerActivity : AppCompatActivity() {
 
+    private val binding by binding<ActivityDatePickerBinding>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_date_picker)
+        binding.datePickerStart.year
     }
 }

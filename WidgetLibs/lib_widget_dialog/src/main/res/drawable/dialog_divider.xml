@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<inset xmlns:android="http://schemas.android.com/apk/res/android"
-    android:insetLeft="4.8dp"
-    android:insetRight="4.8dp">
-
-    <shape android:shape="rectangle">
-        <solid android:color="@color/dialog_line" />
-    </shape>
-</inset>
