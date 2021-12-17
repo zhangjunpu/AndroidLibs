@@ -65,9 +65,9 @@ object StringUtils {
      */
     fun toDBC(input: String): String {
         val charArray = input.map {
-            when {
-                it.toInt() == 12288 -> 32.toChar()
-                it.toInt() in 65281..65374 -> (it.toInt() - 65248).toChar()
+            when (it.code) {
+                12288 -> 32.toChar()
+                in 65281..65374 -> (it.code - 65248).toChar()
                 else -> it
             }
         }.toCharArray()
@@ -79,9 +79,9 @@ object StringUtils {
      */
     fun toSBC(input: String): String {
         val charArray = input.map {
-            when (it.toInt()) {
+            when (it.code) {
                 32 -> 12288.toChar()
-                in 33..126 -> (it.toInt() + 65248).toChar()
+                in 33..126 -> (it.code + 65248).toChar()
                 else -> it
             }
         }.toCharArray()

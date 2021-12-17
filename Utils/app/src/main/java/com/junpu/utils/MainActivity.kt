@@ -2,13 +2,18 @@ package com.junpu.utils
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.junpu.utils.databinding.ActivityMainBinding
 import com.junpu.utils.encrypt.AesUtils
 
 class MainActivity : AppCompatActivity() {
 
+    private val binding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
 
         val key = "zhangjunpu19890311090012"
         val text = "欢迎来到chacuo.net"
