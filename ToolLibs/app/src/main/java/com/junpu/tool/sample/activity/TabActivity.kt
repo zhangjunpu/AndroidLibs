@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import com.junpu.fragment.tab.FragmentTabManager
 import com.junpu.tool.sample.R
+import com.junpu.tool.sample.databinding.ActivityTabBinding
 import com.junpu.tool.sample.fragment.ARGS_NAME
 import com.junpu.tool.sample.fragment.FragmentBlank
-import kotlinx.android.synthetic.main.activity_tab.*
 
 /**
  *
@@ -16,11 +16,13 @@ import kotlinx.android.synthetic.main.activity_tab.*
  */
 class TabActivity : AppCompatActivity() {
 
+    private val binding by lazy { ActivityTabBinding.inflate(layoutInflater) }
+
     private var tabManager: FragmentTabManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tab)
+        setContentView(binding.root)
         initView()
     }
 
@@ -32,9 +34,9 @@ class TabActivity : AppCompatActivity() {
             addTab(FragmentBlank::class.java, "fragment3", bundleOf(ARGS_NAME to "tab3"))
             setSwitchListener { from, to -> println("switch ${from?.tag} ---> ${to?.tag}") }
         }
-        btn1.setOnClickListener { switch(0) }
-        btn2.setOnClickListener { switch(1) }
-        btn3.setOnClickListener { switch(2) }
+        binding.btn1.setOnClickListener { switch(0) }
+        binding.btn2.setOnClickListener { switch(1) }
+        binding.btn3.setOnClickListener { switch(2) }
     }
 
     private fun switch(position: Int) {

@@ -11,9 +11,9 @@ import com.junpu.gopermissions.PermissionsActivity
 import com.junpu.imagepicker.IImagePicker
 import com.junpu.imagepicker.ImagePicker
 import com.junpu.log.L
-import com.junpu.tool.sample.R
-import com.junpu.tool.sample.appendLine
-import kotlinx.android.synthetic.main.fragment_imagepicker.*
+import com.junpu.tool.sample.databinding.ActivityImagepickerBinding
+import com.junpu.tool.sample.databinding.FragmentImagepickerBinding
+import com.junpu.utils.appendLine
 
 /**
  *
@@ -22,9 +22,11 @@ import kotlinx.android.synthetic.main.fragment_imagepicker.*
  */
 class ImagePickerActivity : PermissionsActivity() {
 
+    private val binding by lazy { ActivityImagepickerBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_imagepicker)
+        setContentView(binding.root)
         // 请求权限
         checkPermissions(
             arrayOf(
@@ -32,8 +34,7 @@ class ImagePickerActivity : PermissionsActivity() {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA
             )
-        ) {
-        }
+        )
     }
 }
 
@@ -44,31 +45,38 @@ class ImagePickerActivity : PermissionsActivity() {
  */
 class ImagePickerFragment : Fragment() {
 
+    private var binding: FragmentImagepickerBinding? = null
     private var imagePicker: IImagePicker? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_imagepicker, container, false)
+    ): View {
+        binding = FragmentImagepickerBinding.inflate(inflater, container, false)
+        return binding!!.root
+    }
+
+    override fun onDestroyView() {
+        binding = null
+        super.onDestroyView()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        btnCamera?.setOnClickListener {
+        binding?.btnCamera?.setOnClickListener {
             imagePicker?.startCamera()
         }
 
-        btnPicker?.setOnClickListener {
+        binding?.btnPicker?.setOnClickListener {
             imagePicker?.startPick()
         }
 
-        btnCrop?.setOnClickListener {
+        binding?.btnCrop?.setOnClickListener {
             L.out("onCreate: path ---> $imagePicker")
         }
 
-        textInfo?.appendLine("onCreate")
+        binding?.textInfo?.appendLine("onCreate")
         initImagePicker()
     }
 
@@ -81,20 +89,20 @@ class ImagePickerFragment : Fragment() {
             doOnCapture { uri, path ->
                 L.vv("onCamera: uri ---> ${uri.toString()}")
                 L.vv("onCamera: path ---> $path")
-                textInfo?.appendLine("onCamera: ${uri?.path}\npath: $path")
-                imageView?.setImageURI(uri)
+                binding?.textInfo?.appendLine("onCamera: ${uri?.path}\npath: $path")
+                binding?.imageView?.setImageURI(uri)
             }
             doOnPick { uri, path ->
                 L.vv("onPick: uri ---> ${uri.toString()}")
                 L.vv("onPick: path ---> $path")
-                textInfo?.appendLine("onPick: ${uri?.path}\npath: $path")
-                imageView?.setImageURI(uri)
+                binding?.textInfo?.appendLine("onPick: ${uri?.path}\npath: $path")
+                binding?.imageView?.setImageURI(uri)
             }
             doOnCrop { uri, path ->
                 L.vv("onCrop: uri ---> ${uri.toString()}")
                 L.vv("onCrop: path ---> $path")
-                textInfo?.appendLine("onCrop: ${uri?.path}\npath: $path")
-                imageView?.setImageURI(uri)
+                binding?.textInfo?.appendLine("onCrop: ${uri?.path}\npath: $path")
+                binding?.imageView?.setImageURI(uri)
             }
         }
     }

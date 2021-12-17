@@ -1,6 +1,9 @@
 package com.junpu.tool.sample
 
 import android.app.Application
+import com.junpu.log.L
+import com.junpu.toast.toastContext
+import com.junpu.utils.app
 
 /**
  * @author junpu
@@ -9,13 +12,10 @@ import android.app.Application
  */
 class App : Application() {
 
-    companion object {
-        var application: App? = null
-    }
-
     override fun onCreate() {
         super.onCreate()
-        application = this
-//        DlogImpl.init(BuildConfig.DEBUG)
+        L.logEnable = true
+        toastContext = this
+        app = this
     }
 }

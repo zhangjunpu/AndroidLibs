@@ -1,42 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2f5f4">
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+    <Button
+        android:id="@+id/imagePicker"
+        style="@style/main_item_style"
+        android:text="@string/image_picker" />
 
-        <TextView
-            android:id="@+id/imagePicker"
-            style="@style/main_item_style"
-            android:text="ImagePicker" />
+    <Button
+        android:id="@+id/fragmentTab"
+        style="@style/main_item_style"
+        android:text="@string/fragment_tab" />
 
-        <TextView
-            android:id="@+id/checkUpdate"
-            style="@style/main_item_style"
-            android:text="检查版本" />
-
-        <TextView
-            android:id="@+id/wifi"
-            style="@style/main_item_style"
-            android:text="Wifi" />
-
-        <TextView
-            android:id="@+id/fragmentTab"
-            style="@style/main_item_style"
-            android:text="FragmentTab" />
-
-        <TextView
-            android:id="@+id/log"
-            style="@style/main_item_style"
-            android:text="Log" />
-
-        <TextView
-            android:id="@+id/system"
-            style="@style/main_item_style"
-            android:text="System" />
-    </LinearLayout>
-</ScrollView>
+    <Button
+        android:id="@+id/system"
+        style="@style/main_item_style"
+        android:text="@string/system" />
+</LinearLayout>

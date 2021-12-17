@@ -9,4 +9,7 @@
     <string name="camera">camera</string>
     <string name="picker">picker</string>
     <string name="crop">crop</string>
+    <string name="image_picker">ImagePicker</string>
+    <string name="fragment_tab">FragmentTab</string>
+    <string name="system">System</string>
 </resources>

@@ -4,9 +4,8 @@ import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.junpu.log.L
-import com.junpu.tool.sample.R
-import com.junpu.tool.sample.appendLine
-import kotlinx.android.synthetic.main.activity_device_info.*
+import com.junpu.tool.sample.databinding.ActivityDeviceInfoBinding
+import com.junpu.utils.appendLine
 import java.util.*
 
 /**
@@ -16,9 +15,11 @@ import java.util.*
  */
 class DeviceInfoActivity : AppCompatActivity() {
 
+    private val binding by lazy { ActivityDeviceInfoBinding.inflate(layoutInflater) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_device_info)
+        setContentView(binding.root)
         title = "设备信息"
 
         val text = "系统语言：${Locale.getDefault().language}\n" +
@@ -28,9 +29,13 @@ class DeviceInfoActivity : AppCompatActivity() {
                 "CPU架构信息：${Build.CPU_ABI}\n" +
                 "硬件信息：${Build.HARDWARE}"
         L.d(text)
-        textInfo.text = text
-        textInfo.appendLine("")
-        textInfo.appendLine("")
+        binding.textInfo.text = text
+        binding.textInfo.appendLine("")
+        binding.textInfo.appendLine("")
+        binding.textInfo.appendLine("density: ${resources.displayMetrics.density}")
+        binding.textInfo.appendLine("scaledDensity: ${resources.displayMetrics.scaledDensity}")
+        binding.textInfo.appendLine("")
+        binding.textInfo.appendLine("")
 
         val info = "主板 BOARD：${Build.BOARD}\n" +
                 "设备引导程序版本号 BOOTLOADER：${Build.BOOTLOADER}\n" +
@@ -60,6 +65,6 @@ class DeviceInfoActivity : AppCompatActivity() {
                 "版本号 VERSION.SDK_INT：${Build.VERSION.SDK_INT}\n"
 
         L.d(info)
-        textInfo.appendLine(info)
+        binding.textInfo.appendLine(info)
     }
 }
