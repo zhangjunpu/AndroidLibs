@@ -5,8 +5,8 @@ package com.junpu.toast
 import android.app.Application
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
-import kotlinx.android.synthetic.main.toast_view.view.*
 
 /**
  * Toast
@@ -22,7 +22,7 @@ fun toast(msg: CharSequence?, duration: Int = Toast.LENGTH_SHORT) {
         toast?.cancel()
         toast = Toast(toastContext).apply {
             view = View.inflate(toastContext.applicationContext, R.layout.toast_view, null).apply {
-                textToast?.text = it
+                findViewById<TextView>(R.id.textToast).text = it
             }
             this.duration = duration
 //            setGravity(Gravity.CENTER, 0, 0)
