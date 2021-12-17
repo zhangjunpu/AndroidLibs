@@ -2,9 +2,7 @@ package com.junpu.gopermissions.demo
 
 import android.Manifest
 import android.content.Intent
-import android.os.Bundle
 import com.junpu.gopermissions.PermissionsActivity
-import com.junpu.log.L
 
 /**
  *
@@ -12,10 +10,6 @@ import com.junpu.log.L
  * @date 2020/7/13
  */
 class LaunchActivity : PermissionsActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onStart() {
         super.onStart()
