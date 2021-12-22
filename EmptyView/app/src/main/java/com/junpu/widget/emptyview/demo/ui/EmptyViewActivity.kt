@@ -1,24 +1,24 @@
-package com.junpu.widget.sample.ui
+package com.junpu.widget.emptyview.demo.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.junpu.toast.toast
 import com.junpu.widget.emptyview.EmptyView
-import com.junpu.widget.sample.R
-import com.junpu.widget.sample.databinding.ActivityEmptyViewBinding
-import com.junpu.widget.sample.utils.binding
+import com.junpu.widget.emptyview.demo.R
+import com.junpu.widget.emptyview.demo.databinding.ActivityEmptyViewBinding
 
 /**
- * 空数据页面
+ *
  * @author junpu
- * @date 2019-12-26
+ * @date 2021/12/22
  */
 class EmptyViewActivity : AppCompatActivity() {
 
-    private val binding by binding<ActivityEmptyViewBinding>()
+    private val binding by lazy { ActivityEmptyViewBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(binding.root)
 
         binding.run {
             loading.setOnClickListener {
@@ -46,5 +46,4 @@ class EmptyViewActivity : AppCompatActivity() {
             }
         }
     }
-
 }

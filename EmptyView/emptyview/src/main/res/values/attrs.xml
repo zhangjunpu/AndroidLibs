@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 必须单独定义 -->
+    <attr name="colorMode" format="enum">
+        <enum name="light" value="0" />
+        <enum name="dark" value="1" />
+    </attr>
+
+    <!-- EmptyView -->
+    <declare-styleable name="EmptyView">
+        <attr name="colorMode" />
+    </declare-styleable>
+</resources>
