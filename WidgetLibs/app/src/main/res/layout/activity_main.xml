@@ -6,11 +6,6 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/emptyView"
-        style="@style/main_item"
-        android:text="EmptyView" />
-
-    <TextView
         android:id="@+id/titleBar"
         style="@style/main_item"
         android:text="TitleBar" />
@@ -41,10 +36,5 @@
         android:id="@+id/tvDialPlateForTv"
         style="@style/main_item"
         android:text="TV拨号盘" />
-
-    <TextView
-        android:id="@+id/tvPopupWindow"
-        style="@style/main_item"
-        android:text="PopupWindow" />
 
 </LinearLayout>

@@ -15,7 +15,9 @@ import kotlin.math.abs
  * @author chengxiaobo
  * @time 2018/6/15 14:58
  */
-class FloatViewGroup : FrameLayout {
+class FloatViewGroup @JvmOverloads constructor(
+    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : FrameLayout(context, attrs, defStyleAttr) {
 
     companion object {
         const val MIN_MOVE = 2.0f //dp
@@ -38,17 +40,7 @@ class FloatViewGroup : FrameLayout {
     private var isMove = false //是否移动，没有移动,模拟点击
     private var minMovePx = 0 //最小移动距离
 
-    constructor(context: Context) : this(context, null)
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
-        context,
-        attrs,
-        defStyleAttr
-    ) {
-        init()
-    }
-
-    private fun init() {
+    init {
         this.post {
             val marginStart = (layoutParams as? MarginLayoutParams)?.marginStart ?: 0
             val marginEnd = (layoutParams as? MarginLayoutParams)?.marginEnd ?: 0

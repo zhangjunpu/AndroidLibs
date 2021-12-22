@@ -19,9 +19,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.EmptyViewActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.TitleBarActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -29,12 +26,9 @@
             android:name=".ui.AdBarViewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ui.DialogActivity" />
         <activity android:name=".ui.FloatViewActivity" />
         <activity android:name=".ui.TVDialPlateActivity" />
-        <activity android:name=".ui.PopupWindowActivity" />
         <activity android:name=".ui.PhoneDialActivity" />
-        <activity android:name=".ui.adapter.AdapterActivity" />
         <activity android:name=".ui.DatePickerActivity" />
     </application>
 

@@ -14,14 +14,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding.run {
-            emptyView.setOnClickListener { launch<EmptyViewActivity>() }
             titleBar.setOnClickListener { launch<TitleBarActivity>() }
             tvAdbarview.setOnClickListener { launch<AdBarViewActivity>() }
             tvFloatView.setOnClickListener { launch<FloatViewActivity>() }
 //            tvSlide.setOnClickListener { launch<SlideActivity>() }
             tvDialPlate.setOnClickListener { launch<PhoneDialActivity>() }
             tvDialPlateForTv.setOnClickListener { launch<TVDialPlateActivity>() }
-            tvPopupWindow.setOnClickListener { launch<PopupWindowActivity>() }
         }
     }
 }
