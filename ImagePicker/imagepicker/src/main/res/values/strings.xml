@@ -1,0 +1,3 @@
+<resources>
+    <string name="check_sdcard">无法保存上传的图片，请检查SD卡是否挂载</string>
+</resources>

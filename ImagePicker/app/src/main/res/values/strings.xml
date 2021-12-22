@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ImagePicker</string>
+
+    <string name="image">image</string>
+    <string name="camera">camera</string>
+    <string name="picker">picker</string>
+    <string name="crop">crop</string>
+</resources>
