@@ -1,13 +1,14 @@
 package com.junpu.adapter
 
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * 单选列表
  * @author junpu
  * @date 2019-12-31
  */
-abstract class SingleRecyclerAdapter<T, VH : BaseViewHolder<T>> : BaseAdapter<T, VH>() {
+abstract class SingleRecyclerAdapter<T, VH : RecyclerView.ViewHolder> : BaseAdapter<T, VH>() {
 
     var checkedPosition = -1
 

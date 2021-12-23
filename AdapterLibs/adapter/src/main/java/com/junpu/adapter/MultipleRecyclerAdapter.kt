@@ -1,13 +1,14 @@
 package com.junpu.adapter
 
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * 多选列表
  * @author junpu
  * @date 2019-12-31
  */
-abstract class MultipleRecyclerAdapter<T, VH : BaseViewHolder<T>> : BaseAdapter<T, VH>() {
+abstract class MultipleRecyclerAdapter<T, VH : RecyclerView.ViewHolder> : BaseAdapter<T, VH>() {
 
     var checkedList = arrayListOf<T>()
 
