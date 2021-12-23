@@ -1,3 +1,0 @@
-include ':app'
-include ':lib_fragment_tab'
-include ':lib_imagepicker'
