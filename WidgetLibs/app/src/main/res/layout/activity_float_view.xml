@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.junpu.widget.sample.ui.FloatViewActivity">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="50dp"
-        android:background="#ff00ff">
+        android:background="@color/accent_yellow">
 
         <com.junpu.widget.floatview.FloatViewGroup
             android:id="@+id/floatView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
+            android:layout_gravity="end|bottom"
             android:layout_margin="5dp">
 
             <ImageView
-                android:id="@+id/ChildFloatView"
+                android:id="@+id/floatChild"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:elevation="2dp"
                 android:src="@drawable/selector_send_report"
                 android:translationZ="2dp" />
         </com.junpu.widget.floatview.FloatViewGroup>
-    </RelativeLayout>
+    </FrameLayout>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

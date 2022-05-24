@@ -17,8 +17,8 @@ class FloatViewActivity : AppCompatActivity() {
             Toast.makeText(this, "click", Toast.LENGTH_SHORT).show()
         }
 
-        binding.ChildFloatView.setOnClickListener {
-            Toast.makeText(this, "ChildClick", Toast.LENGTH_SHORT).show()
-        }
+//        binding.floatChild.setOnClickListener {
+            Toast.makeText(this, "chick float child", Toast.LENGTH_SHORT).show()
+//        }
     }
 }

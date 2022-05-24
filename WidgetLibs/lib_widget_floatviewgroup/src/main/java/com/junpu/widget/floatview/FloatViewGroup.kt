@@ -26,22 +26,23 @@ class FloatViewGroup @JvmOverloads constructor(
     private var parentWidth = 0.0f
     private var parentHeight = 0.0f
 
-//    private val marginTop = 0.0f
-//    private val marginBottom = 0.0f
-//    private val marginLeft = 0.0f
-//    private val marginRight = 0.0f
-
     private var downTranslationX = 0.0f
     private var downTranslationY = 0.0f
     private var downX = 0f
     private var downY = 0f
 
-    private var animator: ObjectAnimator? = null
     private var isMove = false //是否移动，没有移动,模拟点击
     private var minMovePx = 0 //最小移动距离
 
+    private val animator by lazy {
+        ObjectAnimator.ofFloat(this, "translationX", translationX).apply {
+            duration = 100L
+            interpolator = AccelerateInterpolator()
+        }
+    }
+
     init {
-        this.post {
+        post {
             val marginStart = (layoutParams as? MarginLayoutParams)?.marginStart ?: 0
             val marginEnd = (layoutParams as? MarginLayoutParams)?.marginEnd ?: 0
             val marginTop = (layoutParams as? MarginLayoutParams)?.topMargin ?: 0
@@ -78,41 +79,43 @@ class FloatViewGroup @JvmOverloads constructor(
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-
+                downTranslationX = translationX
+                downTranslationY = translationY
+                downX = event.rawX
+                downY = event.rawY
+                isMove = false
             }
             MotionEvent.ACTION_MOVE -> {
                 if (abs(event.rawY - downY) > minMovePx && abs(event.rawX - downX) > minMovePx) {
                     isMove = true
                 }
-                translationX = downTranslationX + event.rawX - downX
-                if (translationX > 0) translationX = 0.0f
-                if (translationX < -(parentWidth - width)) translationX = -(parentWidth - width)
-
-                translationY = downTranslationY + event.rawY - downY
-                if (translationY > 0) translationY = 0.0f
-                if (translationY < -(parentHeight - height)) translationY = -(parentHeight - height)
+                // 按钮初始位置在 parent 的右下角，所以往左上移动都是负向的，所以最大值为0
+                // 如果 view 不在 parent 的右下角，需要调整这个最大值、最小值
+                translationX = (downTranslationX + event.rawX - downX)
+                    .coerceAtLeast(-(parentWidth - width))
+                    .coerceAtMost(0f)
+                translationY = (downTranslationY + event.rawY - downY)
+                    .coerceAtLeast(-(parentHeight - height))
+                    .coerceAtMost(0f)
             }
             MotionEvent.ACTION_CANCEL, MotionEvent.ACTION_UP -> {
                 val t =
                     if ((parentWidth - width) / 2 + translationX > 0) 0.0f else -(parentWidth - width)
                 startAnimation(t)
                 if (!isMove) performClick()
-
             }
         }
         return true
     }
 
     private fun startAnimation(t: Float) {
-        animator = ObjectAnimator.ofFloat(this, "translationX", translationX, t)
-        animator?.duration = 100L
-        animator?.interpolator = AccelerateInterpolator()
-        animator?.start()
+        animator.setFloatValues(t)
+        animator.start()
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        animator?.cancel()
+        animator.cancel()
     }
 
     /**
