@@ -52,6 +52,7 @@ open class ImagePicker(
     override fun startPick() {
         val intent = Intent(Intent.ACTION_PICK)
             .setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*")
+            .putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
         startActivityForResult(Intent.createChooser(intent, "选择图片"), REQUEST_CODE_IMAGE_PICK)
     }
 
