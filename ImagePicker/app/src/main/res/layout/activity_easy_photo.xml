@@ -8,6 +8,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnPick"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -15,7 +16,7 @@
         android:id="@+id/btnPick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="相册"
+        android:text="@string/album"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
