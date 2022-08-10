@@ -2,6 +2,7 @@ package com.junpu.imagepreview
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +13,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.junpu.imagepreview.databinding.ImagePagerItemBinding
+import com.junpu.imagepreview.databinding.ActivityImagePreviewItemBinding
 
 /**
  * 视频预览Adapter
@@ -20,10 +21,7 @@ import com.junpu.imagepreview.databinding.ImagePagerItemBinding
  * @author zhangjunpu
  * @date 14/11/21
  */
-class ImagePreviewAdapter(
-    private val context: Context,
-    private var data: Array<out String>? = null,
-) : PagerAdapter() {
+class ImagePreviewAdapter(private val context: Context, private var data: Array<out String>? = null) : PagerAdapter() {
 
     private var onViewTapListener: ((view: View, x: Float, y: Float) -> Unit)? = null
 
@@ -42,27 +40,22 @@ class ImagePreviewAdapter(
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val binding = ImagePagerItemBinding.inflate(LayoutInflater.from(context), container, false)
-            .apply {
-                image.setOnViewTapListener { view, x, y -> onViewTapListener?.invoke(view, x, y) }
-            }
-        loadImageUrl(getItem(position), binding)
-        container.addView(binding.root, 0)
-        return binding.root
+        return ActivityImagePreviewItemBinding.inflate(LayoutInflater.from(context), container, false).run {
+            image.setOnViewTapListener { view, x, y -> onViewTapListener?.invoke(view, x, y) }
+            loadImageUrl(getItem(position), this)
+            container.addView(root, 0)
+            root
+        }
     }
 
-    private fun loadImageUrl(url: String?, binding: ImagePagerItemBinding) {
+    private fun loadImageUrl(url: String?, binding: ActivityImagePreviewItemBinding) {
+        val uri = if (url?.startsWith("file:///") == true) Uri.parse(url) else url
         Glide.with(context)
-            .load(url)
+            .load(uri)
             .error(R.mipmap.ic_default_h)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .listener(object : RequestListener<Drawable> {
-                override fun onLoadFailed(
-                    e: GlideException?,
-                    model: Any?,
-                    target: Target<Drawable>?,
-                    isFirstResource: Boolean
-                ): Boolean {
+                override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
                     binding.loading.visibility = View.GONE
                     return false
                 }
